@@ -63,6 +63,7 @@ def generate_game():
 # PyShop sample code ends.
 
 
+# decision by @Selge:
 def get_score(game_stamps, offset):
     """
         Takes list of game's stamps and time offset for which returns the scores for the home and away teams.
