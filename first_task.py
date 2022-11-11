@@ -3,7 +3,7 @@
 # Нужно суметь понять суть написанного кода, заметить нюансы,
 # разработать функцию вписывающуюся стилем в существующий код, желательно адекватной алгоритмической сложности.
 
-
+# PyShop sample code starts:
 from pprint import pprint
 import random
 import math
@@ -49,13 +49,25 @@ def generate_game():
 
     return stamps
 
+    # game_stamps = generate_game()
+    # pprint(game_stamps)
 
-def get_score(game_stamps, offset=None):
+
+# def get_score(game_stamps, offset):
+#     '''
+#         Takes list of game's stamps and time offset for which returns the scores for the home and away teams.
+#         Please pay attention to that for some offsets the game_stamps list may not contain scores.
+#     '''
+#     # return home, away
+
+# PyShop sample code ends.
+
+
+def get_score(game_stamps, offset):
     """
         Takes list of game's stamps and time offset for which returns the scores for the home and away teams.
         Please pay attention to that for some offsets the game_stamps list may not contain scores.
     """
-    # offset = int(input())
     err_message = "No data!"
     offsets = []
     for game_stamp in game_stamps:
@@ -72,11 +84,12 @@ def get_score(game_stamps, offset=None):
                     home = score.get('home') if score else 0
                     away = score.get('away') if score else 0
                     # return home, away
-                    return home, away
+                    return {"offset": offset,
+                            "score": {"home": home, "away": away}}
 
 
 if __name__ == '__main__':
     game_stamps = generate_game()
-
     pprint(game_stamps)
-    get_score(game_stamps)
+    offset = int(input('Please, type in the target offset: '))
+    pprint(get_score(game_stamps, offset))
