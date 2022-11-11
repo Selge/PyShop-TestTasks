@@ -50,11 +50,6 @@ def generate_game():
     return stamps
 
 
-game_stamps = generate_game()
-
-# pprint(game_stamps)
-
-
 def get_score(game_stamps, offset=None):
     """
         Takes list of game's stamps and time offset for which returns the scores for the home and away teams.
@@ -81,4 +76,7 @@ def get_score(game_stamps, offset=None):
 
 
 if __name__ == '__main__':
+    game_stamps = generate_game()
+
+    pprint(game_stamps)
     get_score(game_stamps)
