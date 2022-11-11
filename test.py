@@ -8,7 +8,16 @@ from first_task import *
 
 
 class TestMethods(unittest.TestCase):
-    def first_test(self):
+    def test_offset_in_game_stamps(self):
+        pass
+
+    def test_no_offset_in_game_stamps(self):
+        pass
+
+    def test_no_score(self):
+        pass
+
+    def test_no_home_or_away_score(self):
         pass
 
 

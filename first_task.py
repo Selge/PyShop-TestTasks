@@ -92,5 +92,8 @@ def get_score(game_stamps, offset):
 if __name__ == '__main__':
     game_stamps = generate_game()
     pprint(game_stamps)
-    offset = int(input('Please, type in the target offset: '))
+    try:
+        offset = int(input('Please, type in the target offset: '))
+    except TypeError:
+        print("Oops! Please,use digits only. Try again...")
     pprint(get_score(game_stamps, offset))
