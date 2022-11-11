@@ -69,21 +69,21 @@ def get_score(game_stamps, offset):
         Takes list of game's stamps and time offset for which returns the scores for the home and away teams.
         Please pay attention to that for some offsets the game_stamps list may not contain scores.
     """
-    err_message = "No data!"
+    none_message = "Game stamps list doesn't content such offset value!"
     offsets = []
     for game_stamp in game_stamps:
         offsets.append(game_stamp["offset"])
 
     if offset not in offsets:
-        return err_message
+        return none_message
     else:
         for game_stamp in game_stamps:
             stamp = list(game_stamp.values())
             for check in stamp:
                 if check == offset:
                     score = stamp[1]
-                    home = score.get('home') if score else 0
-                    away = score.get('away') if score else 0
+                    home = score.get('home') if score else 'No score'
+                    away = score.get('away') if score else 'No score'
                     # return home, away
                     return {"offset": offset,
                             "score": {"home": home, "away": away}}
