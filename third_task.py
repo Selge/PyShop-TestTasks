@@ -15,3 +15,8 @@
 # В выполнении задания может помочь scrapy proxy rotation middleware.
 #
 # Для расчета распределения следует использовать фреймворк Pandas.
+import pandas
+import scrapy
+import selenium
+
+URL = 'https://www.ozon.ru/category/smartfony-15502/?rating=t'

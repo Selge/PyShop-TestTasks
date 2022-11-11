@@ -20,6 +20,9 @@ class TestMethods(unittest.TestCase):
     def test_no_home_or_away_score(self):
         pass
 
+    def test_wrong_offset_input(self):
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()
