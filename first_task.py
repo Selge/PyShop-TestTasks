@@ -82,8 +82,12 @@ def get_score(game_stamps, offset):
             for check in stamp:
                 if check == offset:
                     score = stamp[1]
-                    home = score.get('home') if score else 'No score'
-                    away = score.get('away') if score else 'No score'
+                    home = score.get('home') if score else 0
+                    away = score.get('away') if score else 0
+                    if not home:
+                        home = 0
+                    if not away:
+                        away = 0
                     # return home, away
                     return {"offset": offset,
                             "score": {"home": home, "away": away}}
