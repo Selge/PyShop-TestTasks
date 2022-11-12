@@ -1,6 +1,6 @@
 import unittest
-from contextlib import contextmanager
-from unittest.mock import patch, Mock
+
+from unittest.mock import patch
 from first_task import get_score, get_offset
 # Для разработанной в предыдущем задании функции get_score(game_stamps, offset)
 # разработайте unit-тесты на фреймворке unittest.
