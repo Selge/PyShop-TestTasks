@@ -70,22 +70,27 @@ def get_score(game_stamps, offset):
         Please pay attention to that for some offsets the game_stamps list may not contain scores.
     """
     none_message = "Game stamps list doesn't content such offset value!"
-
+    offsets = []
     for game_stamp in game_stamps:
-        stamp = list(game_stamp.values())
-        if offset == stamp:
-            score = stamp[1]
-            home = score.get('home') if score else 0
-            away = score.get('away') if score else 0
-            if not home:
-                home = 0
-            if not away:
-                away = 0
-            # return home, away
-            return {"offset": offset,
-                    "score": {"home": home, "away": away}}
-    # if offset not in game_stamps:
+        offsets.append(game_stamp["offset"])
+
+    if offset not in offsets:
         return none_message
+    else:
+        for game_stamp in game_stamps:
+            stamp = list(game_stamp.values())
+            for check in stamp:
+                if check == offset:
+                    score = stamp[1]
+                    home = score.get('home') if score else 0
+                    away = score.get('away') if score else 0
+                    if not home:
+                        home = 0
+                    if not away:
+                        away = 0
+                    # return home, away
+                    return {"offset": offset,
+                            "score": {"home": home, "away": away}}
 
 
 def get_offset():
